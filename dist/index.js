@@ -1849,12 +1849,13 @@ var QueryBuilder = function (_React$Component) {
                 fields = _state$schema.fields,
                 operators = _state$schema.operators;
 
+            var field = fields[0].name;
 
             return {
                 id: 'r-' + (0, _v2.default)(),
-                field: fields[0].name,
+                field: field,
                 value: '',
-                operator: operators[0].name
+                operator: this.getOperators(field)[0].name
             };
         }
     }, {
@@ -1899,6 +1900,11 @@ var QueryBuilder = function (_React$Component) {
         value: function onPropChange(prop, value, ruleId) {
             var rule = this._findRule(ruleId, this.state.root);
             Object.assign(rule, _defineProperty({}, prop, value));
+
+            // Reset operator for field change
+            if (prop === 'field') {
+                Object.assign(rule, { operator: this.getOperators(rule.field)[0].name });
+            }
 
             this.setState({ root: this.state.root });
         }
