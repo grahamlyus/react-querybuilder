@@ -1901,9 +1901,9 @@ var QueryBuilder = function (_React$Component) {
             var rule = this._findRule(ruleId, this.state.root);
             Object.assign(rule, _defineProperty({}, prop, value));
 
-            // Reset operator for field change
+            // Reset operator and value for field change
             if (prop === 'field') {
-                Object.assign(rule, { operator: this.getOperators(rule.field)[0].name });
+                Object.assign(rule, { operator: this.getOperators(rule.field)[0].name, value: '' });
             }
 
             this.setState({ root: this.state.root });
