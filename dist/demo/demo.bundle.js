@@ -7134,7 +7134,7 @@ var RuleGroup = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'ruleGroup ' + classNames.ruleGroup },
-                _react2.default.createElement(controls.combinatorSelector, {
+                controls.combinatorSelector ? _react2.default.createElement(controls.combinatorSelector, {
                     options: combinators,
                     value: combinator,
                     title: translations.combinators.title,
@@ -7142,7 +7142,7 @@ var RuleGroup = function (_React$Component) {
                     handleOnChange: this.onCombinatorChange,
                     rules: rules,
                     level: level
-                }),
+                }) : null,
                 _react2.default.createElement(controls.addRuleAction, {
                     label: translations.addRule.label,
                     title: translations.addRule.title,
@@ -7151,14 +7151,14 @@ var RuleGroup = function (_React$Component) {
                     rules: rules,
                     level: level
                 }),
-                _react2.default.createElement(controls.addGroupAction, {
+                controls.addGroupAction ? _react2.default.createElement(controls.addGroupAction, {
                     label: translations.addGroup.label,
                     title: translations.addGroup.title,
                     className: 'ruleGroup-addGroup ' + classNames.addGroup,
                     handleOnClick: this.addGroup,
                     rules: rules,
                     level: level
-                }),
+                }) : null,
                 this.hasParentGroup() ? _react2.default.createElement(controls.removeGroupAction, {
                     label: translations.removeGroup.label,
                     title: translations.removeGroup.title,
