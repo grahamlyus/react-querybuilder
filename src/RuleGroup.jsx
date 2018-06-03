@@ -18,17 +18,18 @@ export default class RuleGroup extends React.Component {
           return (
             <div className={`ruleGroup ${classNames.ruleGroup}`}>
                 {
-                    React.createElement(controls.combinatorSelector,
-                        {
-                            options: combinators,
-                            value: combinator,
-                            title: translations.combinators.title,
-                            className: `ruleGroup-combinators ${classNames.combinators}`,
-                            handleOnChange: this.onCombinatorChange,
-                            rules: rules,
-                            level: level
-                        }
-                    )
+                    controls.combinatorSelector ?
+                        React.createElement(controls.combinatorSelector,
+                            {
+                                options: combinators,
+                                value: combinator,
+                                title: translations.combinators.title,
+                                className: `ruleGroup-combinators ${classNames.combinators}`,
+                                handleOnChange: this.onCombinatorChange,
+                                rules: rules,
+                                level: level
+                            }
+                        ) : null
                 }
                 {
                     React.createElement(controls.addRuleAction,
@@ -43,16 +44,17 @@ export default class RuleGroup extends React.Component {
                     )
                 }
                 {
-                    React.createElement(controls.addGroupAction,
-                        {
-                            label: translations.addGroup.label,
-                            title: translations.addGroup.title,
-                            className: `ruleGroup-addGroup ${classNames.addGroup}`,
-                            handleOnClick: this.addGroup,
-                            rules: rules,
-                            level: level
-                        }
-                    )
+                    controls.addGroupAction ?
+                        React.createElement(controls.addGroupAction,
+                            {
+                                label: translations.addGroup.label,
+                                title: translations.addGroup.title,
+                                className: `ruleGroup-addGroup ${classNames.addGroup}`,
+                                handleOnClick: this.addGroup,
+                                rules: rules,
+                                level: level
+                            }
+                        ) : null
                 }
                 {
                     this.hasParentGroup() ?
